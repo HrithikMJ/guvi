@@ -1,44 +1,33 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$db="Profile";
-$conn =  mysqli_connect($servername, $username, $password,$db);
-if ($conn->connect_error) {
-    die("Connection failed: " .mysqli_connect_error());
-  }
-$redis = new Redis();
-$redis->connect('localhost',6379);
-$redis->auth('123');
-// $has="hello";
-// echo "hello";
-if($qry = $conn->prepare('INSERT into Users values (?,?)')){
-    $qry -> bind_param('ss',$_POST["email"],$_POST["password"]);
-    $qry -> execute();
-    // $qry -> store_result();
-};
-if(function_exists($_GET['f'])) {
-    $_GET['f']();
- }
-function register(){
-    // if ( !isset($_POST['email'],$_POST["password"])){
-    //     exit("invalid");
-    // }
-    // if ($qry = $conn->prepare('SELECT password FROM users where username=?')){
-    //     $qry -> bind_param('s',$_POST["email"]);
-    //     $qry -> execute();
-    //     $qry -> store_result();
-    //     if ( $qry -> num_rows >0){
-    //         $qry -> bind_result($password);
-    //         $qry -> fetch();
-    //     }
-    if($qry = $conn->prepare('INSERT into Users values (?,?)')){
-        $qry -> bind_param('ss',$_POST["email"],$_POST["password"]);
-        $qry -> execute();
-        $qry -> store_result();
-    };
-    }
+define("SITE_ROOT", __DIR__);
+include('config.php');
 
-echo "hello". htmlspecialchars($_POST["email"]) . '!';
+// $mongodbDatabase = 'Users';
+// $mongodbCollection = 'Profile';
+// $serverApi = new MongoDB\Driver\ServerApi(\MongoDB\Driver\ServerApi::V1);
+// $client = new MongoDB\Driver\Manager(
+//     'mongodb+srv://20ad13:Root@cluster0.ohkqkqc.mongodb.net/?retryWrites=true&w=majority',
+//     [],
+//     ['serverApi' => $serverApi]
+// );
+// $dbname = "Profile";
+// $command = new MongoDB\Driver\Command(["listCollections" => 1]);
+// $cursor = $client->executeCommand($dbname, $command);
+// $database = $client->{$dbname};
+// $collection = $client->{$mongodbDatabase}->{$mongodbCollection};
+// echo "Collection  created successfully.";
+
+// if (function_exists($_GET['f'])) {
+//     $_GET['f']();
+// }
+if ($qry = $con->prepare('INSERT into Users values (?,?)')) {
+    $qry->bind_param('ss', $_POST["email"], $_POST["password"]);
+    $qry->execute();
+    $qry->store_result();
+}
+;
+
+
+echo "hello" . htmlspecialchars($_POST["email"]) . '!';
 ?>

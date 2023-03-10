@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
 :root {
   /* CSS HEX */
-  --timberwolf: #d1c5c2ff;
-  --cinereous: #9a878bff;
-  --dim-gray: #7c6c72ff;
-  --licorice: #291d18ff;
+  --indigo-dye: #1f4c63ff;
+  --powder-blue: #9fb8c7ff;
+  --charcoal: #2f3e46ff;
+  --air-superiority-blue: #76a4b7ff;
 }
 
 * {
@@ -19,45 +19,47 @@ p {
   font-weight: bold;
 }
 body,
-.Register {
+.Login {
+  color: var(--charcoal);
   min-height: 100vh;
   width: 100%;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(239, 238, 238);
+  background-color: #e0edf2;
 }
-.Register .registerContainer {
+.Login .loginContainer {
   height: 100%;
   width: 60%;
   display: flex;
   align-items: center;
   justify-content: center;
   background: rgb(209, 197, 194);
+  background: rgb(214, 223, 228);
   background: linear-gradient(
     148deg,
-    rgba(209, 197, 194, 1) 0%,
-    rgba(154, 135, 139, 1) 73%,
-    rgba(124, 108, 114, 1) 100%
+    rgba(214, 223, 228, 1) 0%,
+    rgba(181, 202, 210, 1) 73%,
+    rgba(87, 130, 152, 1) 100%
   );
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 40px;
   padding: 40px;
   gap: 100px;
 }
-.Register .registerContainer .formColumn1 h1{
-  font-weight: bold;
-  color:var(--licorice)
+.Login .loginContainer .formColumn1 h1 {
+  font-weight: bolder;
 }
-.registerContainer .formColumn1 {
+.loginContainer .formColumn1 {
   display: flex;
   align-items: flex-start;
   justify-content: space-around;
   flex-direction: column;
   width: 40%;
+  height: 60vh;
   gap: 30px;
-  background-color: rgb(239, 238, 238);
+  background-color: #cee2eb;
 
   padding: 4%;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -65,48 +67,49 @@ body,
   /* grid-column: 1; */
 }
 
-.registerContainer .formColumn1 form {
+.loginContainer .formColumn1 form {
   width: 100%;
-  height: 100%;
+  height: 40%;
   display: flex;
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
   gap: 20px;
 }
-.Register form div {
+.Login form div {
   align-self: flex-start;
   width: 100%;
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
   flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
 }
-.Register form div input {
+.Login form div input {
   height: 3vh;
   width: 100%;
   border: none;
-  background-color: var(--timberwolf);
+  background-color: var(--powder-blue);
 }
-.Register form div label {
+.Login form div label {
   text-transform: uppercase;
   font-weight: bolder;
   color: var(--licorice);
 }
-.registerContainer .formColumn1 p {
+.loginContainer .formColumn1 p {
   align-self: center;
 }
-.registerContainer .formColumn2 {
+.loginContainer .formColumn2 {
   width: 60%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.registerContainer .formColumn2 .imageContainer {
+.loginContainer .formColumn2 .imageContainer {
   width: 90%;
-  animation: scaler 5s infinite cubic-bezier(0,.50,1,.50);
+  animation: scaler 5s infinite cubic-bezier(0, 0.5, 1, 0.5);
 }
-.registerContainer .formColumn2 .imageContainer img {
+.loginContainer .formColumn2 .imageContainer img {
   width: 100%;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -123,15 +126,14 @@ body,
   }
 }
 @media screen and (max-width: 600px) {
-  .registerContainer .formColumn2 {
+  .loginContainer .formColumn2 {
     display: none;
-    width: 0%;
-
   }
-  .registerContainer .formColumn1 {
+  .loginContainer .formColumn1 {
     width: 100%;
   }
-.Register .registerContainer {
+
+.Login .loginContainer {
 width: 100%;
 }
 }
