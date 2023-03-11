@@ -1,9 +1,9 @@
 $(document).ready(function () {
-    // if (!localStorage.loggedin) {
-    //     // alert("hi")
-    //     window.history.href = "/";
-    //     return
-    // }
+    if (!localStorage.loggedin) {
+        // alert("hi")
+        window.history.href = "/";
+        return
+    }
 
     $.ajax({
         url: 'http://localhost:9000/profile.php',
@@ -13,16 +13,13 @@ $(document).ready(function () {
         success: function (response) {
             resp = JSON.parse(response)
 
-            document.getElementById("name").innerHTML = resp["name"];
-            document.getElementById("dob").innerHTML = resp["dob"];
-            document.getElementById("age").innerHTML = resp["age"];
-            document.getElementById("phone").innerHTML = resp["phone"];
+            document.getElementById("name").value = resp["name"];
+            document.getElementById("dob").value = resp["dob"];
+            document.getElementById("age").value = resp["age"];
+            document.getElementById("phone").value = resp["phone"];
 
-            document.getElementById("editEmail").value = localStorage.getItem("email");
-            document.getElementById("editName").value = resp["name"];
-            document.getElementById("editDob").value = resp["dob"];
-            document.getElementById("editAge").value = resp["age"];
-            document.getElementById("editPhone").value = resp["phone"];
+            document.getElementById("em").value = localStorage.getItem("email");
+
 
         },
     })
@@ -44,17 +41,7 @@ $(document).ready(function () {
             },
         })
     })
-    $("#edit").click(function (e) {
-        if (document.getElementById("editProfileForm").style.display === "flex") {
-            document.getElementById("editProfileForm").style.display = "none";
-            document.getElementById("submitEdit").style.display = "none";
-        }
-        else {
-            document.getElementById("editProfileForm").style.display = "flex"
-            document.getElementById("submitEdit").style.display = "flex";
-        }
 
-    })
     $("#submitEdit").click(function (e) {
 
         console.log($('form#editProfileForm').serialize())
@@ -72,7 +59,7 @@ $(document).ready(function () {
                         title: 'Edit Successfull!',
                         showConfirmButton: true,
                         timer: 1500,
-                    }).then(location.reload());
+                    }).then(()=>{location.reload()});
 
                 }
 

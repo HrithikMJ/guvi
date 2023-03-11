@@ -12,8 +12,13 @@
   transition: all 2s cubic-bezier(0.19, 1, 0.22, 1);
   user-select: none;
 }
-span {
+.profileContainer .profileColumn1 p input {
   font-weight: bold;
+  border: none;
+    background-color: transparent;
+    width: fit-content;
+    font-size: larger;
+
 }
 
 body,
@@ -26,10 +31,8 @@ body,
   justify-content: center;
   background-color: #e0edf2;
 }
-form,
-#submitEdit {
-  display: none;
-}
+
+
 #em {
   display: none;
 }
@@ -41,10 +44,17 @@ form,
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: larger;
+}
+.profileContainer svg{
+  scale: 1.5;
+}
+.profileContainer button:hover {
+  background-color: rgb(111, 140, 158);
 }
 .Profile .profileContainer {
   height: 60vh;
-  max-width: 80%;
+  max-width: 70%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,7 +71,7 @@ form,
   font-weight: bolder;
   color: var(--licorice);
 }
-.profileContainer form div input {
+.profileContainer form input {
   border: none;
   background-color: var(--powder-blue);
   height: 3vh;
@@ -74,7 +84,7 @@ form,
   gap: 10px;
 }
 .profileContainer .profileColumn1 {
-  width: 50%;
+  width: 90%;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -87,7 +97,7 @@ form,
   align-items: flex-start;
   justify-content: space-between;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
 }
 .profileContainer .profileColumn2 form {
   width: 50%;
@@ -99,11 +109,11 @@ form,
 @media screen and (max-width: 600px) {
   .profileContainer {
     flex-direction: column;
-    gap:10px;
+    gap: 10px;
     height: 70vh;
   }
   .profileContainer .profileColumn1 {
-    gap: 10px;
+    gap: 40px;
   }
   .profileContainer .profileColumn2 form {
     gap: 10px;

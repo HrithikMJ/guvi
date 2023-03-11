@@ -104,6 +104,19 @@ body,
   font-weight: bolder;
   color: var(--licorice);
 }
+.loginContainer button {
+  border: none;
+  background-color: var(--powder-blue);
+  padding: 10px 6px;
+  height: 3vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: larger;
+}
+.loginContainer button:hover {
+  background-color: rgb(111, 140, 158);
+}
 .loginContainer .formColumn1 p {
   align-self: center;
 }
