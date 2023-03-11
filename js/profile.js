@@ -4,6 +4,9 @@ $(document).ready(function () {
         window.history.href = "/";
         return
     }
+    $("#github").click(function (e) {
+        window.open("https://github.com/HrithikMJ/guvi","_blank");
+    })
 
     $.ajax({
         url: 'http://localhost:9000/profile.php',
@@ -23,6 +26,7 @@ $(document).ready(function () {
 
         },
     })
+   
     $("#logout").click(function (e) {
         $.ajax({
             url: 'http://localhost:9000/logout.php',

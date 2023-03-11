@@ -46,7 +46,7 @@ body,
   justify-content: center;
   font-size: larger;
 }
-.profileContainer svg{
+.profileContainer .face{
   scale: 1.5;
 }
 .profileContainer button:hover {
