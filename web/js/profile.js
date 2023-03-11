@@ -3,4 +3,9 @@ $(document).ready(function () {
         // alert("hi")
         window.history.back()
     }
+    $("#logout").click(function (e) {
+        localStorage.clear();
+        window.history.back()
+
+    })
 }) 
