@@ -45,13 +45,13 @@ if ($qry = $con->prepare('INSERT into Users values (?,?)')) {
 
         ])
     ) {
-     
+
 
         echo "Successfully Registered with email:" . htmlspecialchars($username) . "!";
     } else {
         echo "error";
     }
-    // $qry->store_result();
+
 }
 
 mysqli_close($con);

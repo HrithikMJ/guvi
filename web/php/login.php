@@ -36,8 +36,8 @@ if ($row = $con->prepare("select password from Users where email = ? and passwor
 
 			$_SESSION["loggedin"] = true;
 			$_SESSION["email"] = $username;
-			$redis->set('session:'.session_id(), serialize($_SESSION));
-			
+			$redis->set('session:' . session_id(), serialize($_SESSION));
+
 			echo json_encode(
 				array(
 					"loggedin" => $_SESSION["loggedin"],
@@ -58,9 +58,5 @@ if ($row = $con->prepare("select password from Users where email = ? and passwor
 $row->close();
 $con->close();
 
-// if ($count > 0) {
-// 	echo "<h1><center> Login successful </center></h1>";
-// } else {
-// 	echo "<h1> Login failed. Invalid username or password.</h1>";
-// }
+
 ?>

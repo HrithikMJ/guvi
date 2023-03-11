@@ -5,9 +5,7 @@ header("Access-Control-Allow-Origin: *");
 include("config.php");
 
 $email = $_POST["email"];
-// $cursor = $collection->find([
-//     'email' => $email,
-// ]);
+
 echo $_SESSION["email"];
 if (
     $updateResult = $collection->updateOne(
