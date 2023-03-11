@@ -15,12 +15,14 @@
   transition: all 2s cubic-bezier(0.19, 1, 0.22, 1);
   user-select: none;
 }
-p {
+a {
+  text-decoration: none;
   font-weight: bold;
+  color: var(--licorice);
 }
 body,
 .Register {
-  min-height: 100vh;
+  min-height: 100dvh;
   width: 100%;
   overflow: hidden;
   display: flex;
@@ -46,9 +48,9 @@ body,
   padding: 40px;
   gap: 100px;
 }
-.Register .registerContainer .formColumn1 h1{
+.Register .registerContainer .formColumn1 h1 {
   font-weight: bold;
-  color:var(--licorice)
+  color: var(--licorice);
 }
 .registerContainer .formColumn1 {
   display: flex;
@@ -104,7 +106,7 @@ body,
 }
 .registerContainer .formColumn2 .imageContainer {
   width: 90%;
-  animation: scaler 5s infinite cubic-bezier(0,.50,1,.50);
+  animation: scaler 5s infinite cubic-bezier(0, 0.5, 1, 0.5);
 }
 .registerContainer .formColumn2 .imageContainer img {
   width: 100%;
@@ -126,12 +128,13 @@ body,
   .registerContainer .formColumn2 {
     display: none;
     width: 0%;
-
   }
   .registerContainer .formColumn1 {
     width: 100%;
   }
-.Register .registerContainer {
-width: 100%;
-}
+  .Register .registerContainer {
+    width: 100%;
+    background: none;
+    box-shadow: none;
+  }
 }

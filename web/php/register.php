@@ -3,31 +3,57 @@ header("Access-Control-Allow-Origin: *");
 define("SITE_ROOT", __DIR__);
 include('config.php');
 
-// $mongodbDatabase = 'Users';
-// $mongodbCollection = 'Profile';
-// $serverApi = new MongoDB\Driver\ServerApi(\MongoDB\Driver\ServerApi::V1);
-// $client = new MongoDB\Driver\Manager(
-//     'mongodb+srv://20ad13:Root@cluster0.ohkqkqc.mongodb.net/?retryWrites=true&w=majority',
-//     [],
-//     ['serverApi' => $serverApi]
-// );
-// $dbname = "Profile";
-// $command = new MongoDB\Driver\Command(["listCollections" => 1]);
-// $cursor = $client->executeCommand($dbname, $command);
-// $database = $client->{$dbname};
-// $collection = $client->{$mongodbDatabase}->{$mongodbCollection};
-// echo "Collection  created successfully.";
+$username = trim($_POST["email"]);
+$password = $_POST["password"];
+$name = $_POST["name"];
+$age = $_POST["age"];
+$phone = $_POST["phone"];
+$dob = $_POST["dob"];
 
-// if (function_exists($_GET['f'])) {
-//     $_GET['f']();
-// }
-if ($qry = $con->prepare('INSERT into Users values (?,?)')) {
-    $qry->bind_param('ss', $_POST["email"], $_POST["password"]);
-    $qry->execute();
-    $qry->store_result();
+$username = stripcslashes($username);
+$password = stripcslashes($password);
+$username = mysqli_real_escape_string($con, $username);
+$password = mysqli_real_escape_string($con, $password);
+
+$sql = "SELECT * FROM Users WHERE email = ?";
+$qry = mysqli_prepare($con, $sql);
+if ($qry) {
+    mysqli_stmt_bind_param($qry, "s", $username);
+    if (mysqli_stmt_execute($qry)) {
+        mysqli_stmt_store_result($qry);
+
+        if (mysqli_stmt_num_rows($qry) == 1) {
+            exit("This email is already taken");
+        }
+    } else {
+        exit("error");
+    }
+    mysqli_stmt_close($qry);
+
 }
-;
 
+if ($qry = $con->prepare('INSERT into Users values (?,?)')) {
+    $qry->bind_param('ss', $username, $password);
 
-echo "hello" . htmlspecialchars($_POST["email"]) . '!';
+    if (
+        $qry->execute() && $insertOneResult = $collection->insertOne([
+            'name' => $name,
+            'email' => $username,
+            'age' => $age,
+            'phone' => $phone,
+            'dob' => $dob,
+
+        ])
+    ) {
+     
+
+        echo "Successfully Registered with email:" . htmlspecialchars($username) . "!";
+    } else {
+        echo "error";
+    }
+    // $qry->store_result();
+}
+
+mysqli_close($con);
+
 ?>

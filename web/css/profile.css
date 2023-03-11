@@ -1,0 +1,111 @@
+:root {
+  /* CSS HEX */
+  --indigo-dye: #1f4c63ff;
+  --powder-blue: #9fb8c7ff;
+  --charcoal: #2f3e46ff;
+  --air-superiority-blue: #76a4b7ff;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  transition: all 2s cubic-bezier(0.19, 1, 0.22, 1);
+  user-select: none;
+}
+span {
+  font-weight: bold;
+}
+
+body,
+.Profile {
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0edf2;
+}
+form,
+#submitEdit {
+  display: none;
+}
+#em {
+  display: none;
+}
+.profileContainer button {
+  border: none;
+  background-color: var(--powder-blue);
+  padding: 10px 6px;
+  height: 3vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Profile .profileContainer {
+  height: 60vh;
+  max-width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #cee2eb;
+
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 40px;
+  padding: 40px;
+  gap: 100px;
+}
+.profileContainer form div label {
+  text-transform: uppercase;
+  font-weight: bolder;
+  color: var(--licorice);
+}
+.profileContainer form div input {
+  border: none;
+  background-color: var(--powder-blue);
+  height: 3vh;
+}
+.profileContainer form div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
+}
+.profileContainer .profileColumn1 {
+  width: 50%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 30px;
+}
+.profileContainer .profileColumn2 {
+  width: 50%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 20px;
+}
+.profileContainer .profileColumn2 form {
+  width: 50%;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 20px;
+}
+@media screen and (max-width: 600px) {
+  .profileContainer {
+    flex-direction: column;
+    gap:10px;
+    height: 70vh;
+  }
+  .profileContainer .profileColumn1 {
+    gap: 10px;
+  }
+  .profileContainer .profileColumn2 form {
+    gap: 10px;
+  }
+}

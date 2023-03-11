@@ -1,8 +1,32 @@
 <?php
-$redis = new Redis();
-$redis->connect('localhost', 6379);
-$redis->auth('123');
-$redis->set("tutorial-name", "Redis tutorial"); 
+
 // $redis->set("tutorial-name", "Redis tutorial"); 
-echo "Stored string in redis::" .$redis->get("tutorial-name"); 
+// phpinfo();
+include("config.php");
+// if (!$_SESSION["loggedin"]) {
+//     exit("invalid ");
+// }
+// echo $_POST["email"];
+// $updateResult = $collection->updateOne(
+//     [ 'restaurant_id' => $_POST["email"] ],
+//     [ '$set' => [ 'name' => 'Brunos on Astoria' ]]
+//  );
+
+$cursor = $collection->find([
+    'email' => $_POST["email"],
+]);
+
+
+foreach ($cursor as $document) {
+    echo json_encode(
+        array(
+            "name" => $document['name'],
+            "dob" => $document['dob'],
+            "age" => $document['age'],
+            "phone" => $document['phone'],
+        )
+    );
+
+}
+
 ?>

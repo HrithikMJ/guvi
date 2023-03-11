@@ -16,12 +16,20 @@
   user-select: none;
 }
 p {
+  font-weight: 500;
+}
+span {
   font-weight: bold;
+}
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--charcoal);
 }
 body,
 .Login {
   color: var(--charcoal);
-  min-height: 100vh;
+  min-height: 100dvh;
   width: 100%;
   overflow: hidden;
   display: flex;
@@ -107,7 +115,7 @@ body,
 }
 .loginContainer .formColumn2 .imageContainer {
   width: 90%;
-  animation: scaler 5s infinite cubic-bezier(0, 0.5, 1, 0.5);
+  animation: scaler 10s infinite cubic-bezier(0, 0.5, 1, 0.5);
 }
 .loginContainer .formColumn2 .imageContainer img {
   width: 100%;
@@ -116,13 +124,13 @@ body,
 }
 @keyframes scaler {
   0% {
-    scale: 0.98;
+    scale: 0.99;
   }
   50% {
     scale: 1;
   }
   100% {
-    scale: 0.98;
+    scale: 0.99;
   }
 }
 @media screen and (max-width: 600px) {
@@ -133,7 +141,9 @@ body,
     width: 100%;
   }
 
-.Login .loginContainer {
-width: 100%;
-}
+  .Login .loginContainer {
+    width: 100%;
+    background: none;
+    box-shadow: none;
+  }
 }
