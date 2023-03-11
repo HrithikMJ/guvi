@@ -8,12 +8,15 @@ https://user-images.githubusercontent.com/31767239/224482199-f9702734-9667-4336-
 ## Pre-requisites:
   
   php 8.2
+  
   mongodb 1.15
+  
   redis
+  
   mysql
  
  
-## Working
+## Working:
 
 To run it install composer and then run
 `composer require mongodb/mongodb`
