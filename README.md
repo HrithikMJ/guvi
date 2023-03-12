@@ -33,7 +33,7 @@ To run mysql
 `sudo mysql -u root -p`
 
 To run php
-  `sudo php -S localhost:3000`
+  `sudo php -S localhost:9000`
 
 Note: always run php as root 
 
